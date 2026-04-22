@@ -1,6 +1,6 @@
 services:
   skiing-server:
-    build: ./skiing-server
+    build: ./node
     container_name: skiing-server
     environment:
       VMIX_IP: host.docker.internal
@@ -9,11 +9,12 @@ services:
       - "3000:3000"
     restart: unless-stopped
   skiing-list:
-    build: ./skiing-list
+    build: ./list
     container_name: skiing-list
     environment:
       VMIX_IP: host.docker.internal
       EVID: 9297
+      SERVER_IP: "http://skiing-server:3000/newr"
     ports:
       - "7000:7000"
     depends_on:

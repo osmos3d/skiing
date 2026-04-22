@@ -1,7 +1,7 @@
 const vMixService = require("./vmixservice");
 const fs = require('node:fs')
 //const vMix = new vMixService("127.0.0.1");
-const vMix = new vMixService("process.env.VMIX_IP || 127.0.0.1");
+const vMix = new vMixService(process.env.VMIX_IP || "127.0.0.1");
 const axios = require('axios')
 const path = require('path')
 const express = require('express')
@@ -18,7 +18,7 @@ var titleon = false
 const photoFolder = 'D://bmx_race_jul_2025/photo'
 var selectedCol = 0 ;
 
-url = 'http://localhost:3000/newr'
+url = process.env.SERVER_IP || 'http://localhost:3000/newr'
 
 app.use( express.static('public') )
 app.use(bodyParser.urlencoded({

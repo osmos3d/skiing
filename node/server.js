@@ -93,7 +93,7 @@ app.post( '/selectedAtForTable', (req,res) => {
 
 
 function readExcelData() {
-    return readXlsxFile('../setka.xlsx').then((sheets) => {
+    return readXlsxFile('./setka.xlsx').then((sheets) => {
         rows = sheets[0].data
         evid = process.env.EVID || rows[0][1];
         id = rows[1][1];

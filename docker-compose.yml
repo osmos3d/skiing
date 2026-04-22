@@ -1,0 +1,20 @@
+services:
+  skiing-server:
+    build: ./skiing-server
+    container_name: skiing-server
+    environment:
+      VMIX_IP: host.docker.internal
+      EVID: 9297
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+  skiing-list:
+    build: ./skiing-list
+    container_name: skiing-list
+    environment:
+      VMIX_IP: host.docker.internal
+      EVID: 9297
+    ports:
+      - "7000:7000"
+    depends_on:
+      - skiing-server

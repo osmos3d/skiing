@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css" crossorigin="anonymous">
+
+  
+
+
+
+  </head>
+  <body id="app" v-cloak>
+    <div class="row">
+      <div class='container'>
+        <div class="col" >
+        	<ul class="list-group">
+                <li
+                    class="at"
+                 >
+                  <div class='result'>
+                  {{ at[0].d }}
+                  </div>
+                </li>
+          		  <li  class="at"
+                  v-for="(item,index) in at"
+                  v-bind:id = 'index'
+                  :key="index"
+                  :class="{ selected: index === selectedPlayer }" >
+
+                <div class='pos'>
+                 {{ index +1}} 
+                </div>
+                <div class='number'>
+                 {{ item.num }} 
+                </div>
+            		<div
+                    class="name"
+                    :style="{ fontSize: item.name.length > 18 ? '15px' : '18px' }"
+                    >
+                {{ item.name }} </br>
+                </div>
+                <div class="result">
+                {{ item.result  }} </br>
+                </div>
+
+          		</li>
+        	</ul>
+        </div>
+       
+      </div>
+
+    </div>
+
+
+
+  <script src="js/jquery.min.js"></script>
+  <script type="text/javascript" type="text/javascript" src="js/bootstrap.min.js"> </script>
+  <script type="text/javascript" type="text/javascript" src="js/axios.min.js"> </script>
+  <script type="text/javascript" type="text/javascript" src="js/jquery-3.6.1.min.js"> </script>
+  <script src="js/vue.global.js"></script>
+  <script type="module" src="js/app.js"></script>
+
+  </body>
+  </html>

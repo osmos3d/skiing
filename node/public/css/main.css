@@ -1,0 +1,153 @@
+/* CSS */
+@font-face {
+  font-family: 'Opinion Pro';
+  src: url('fonts/Opinion Pro.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+
+body {
+	background-color: rgba(0, 0, 0, 0);
+	font-family: 'Opinion Pro', sans-serif;
+	font-weight: bold;
+	width: 1920px;
+	height: 1080px;
+	margin: 0;
+	padding: 0;
+	overflow: hidden; /* Отключаем прокрутку */
+	box-sizing: border-box;
+}
+
+.row .container{
+	width: 1920px;
+	height: 1080px;
+	margin: 0;
+	padding: 0;
+	overflow: hidden; /* Отключаем прокрутку */
+	box-sizing: border-box;
+}
+
+li.at  {
+	background-color: rgba(0, 0, 0, 0) ;
+	color:  white;
+	position: absolute;
+	width: 390px;
+	height: 32px;
+	margin: 0px;
+	padding: 0px;
+	transition-duration: 0.7s;
+	opacity: 0;
+	left: -150px;
+}
+
+li.at.transitionIN {
+	transform: translateX(0%);
+	opacity: 1;
+/*	animation: reveal 1s forwards;*/
+}
+
+.col h1{
+	text-align: center; 
+}
+
+div.pos {
+	background-color: #D2E2F1;
+	width: 32px;
+	color: #363739;
+}
+
+div.number {
+	background-color: #9EC939;
+	width: 32px;
+}
+
+
+
+div.name {
+	background-color: #D2E2F1 ;
+	width: 213px;
+	text-align: left;
+	text-transform: uppercase;
+	color: #363739;
+
+}
+
+div.result {
+	background-color: #0D63B0;
+	width: 90px;
+
+}
+
+/*li.at div {
+	display: inline;
+}*/
+
+
+/*цвет второстепенных строк*/
+li.lastAthlets div.pos , li.lastAthlets div.name {
+	background-color: #B4C0CC;
+}
+
+li.lastAthlets div.number  {
+	background-color: #9BBB59;
+}
+
+
+
+.number, .name, .result, .pos {
+  height: 32px;
+  float: left;
+  padding: 0px;
+  margin: 0px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center; /* Горизонтальное выравнивание */
+  align-items: center;     /* Вертикальное выравнивание */
+  width: 100%;             /* Ширина элемента */
+  height: 100%;            /* Высота элемента */
+  text-align: center;      /* Текст по центру */
+}
+
+.result {
+	font-size: 18px;
+}
+
+
+
+
+
+ div.name {
+	justify-content: left;
+	padding-left: 10px;
+
+}
+
+
+li::marker {
+  content: '';
+  font-size: 1.2em;
+}
+
+
+li.at.selected .name,
+li.at.selected .pos {
+	background-color: #F8AC6A;
+
+}
+
+li.at.selected .result {
+	background-color: #FB5808;
+	width: 100px;
+}
+
+
+li.at.selected {
+  transform: scale(1.05) translateX(10px);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  border-radius: 5px;
+}
+

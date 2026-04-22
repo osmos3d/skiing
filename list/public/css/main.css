@@ -1,0 +1,167 @@
+@font-face {
+  font-family: 'Bebas Neue Pro';
+  src: url('fonts/BebasNeue Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #303841;
+  font-family: 'Styrene A Web Medium', 'Styrene A Web', sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto; /* <-- заменили hidden на auto */
+  overflow-x: auto; /* <-- заменили hidden на auto */
+}
+
+.row {
+  margin: 0;
+}
+
+.row .container {
+  width: 100%;
+  max-width: 2320px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0;
+  overflow: hidden;
+}
+
+ul.list-group {
+  position: relative;
+  margin: 35px;
+  padding: 0;
+  list-style: none;
+}
+
+li.title,
+li.at {
+  display: flex;
+  align-items: center;
+  height: 35px;
+  margin-bottom: 5px; /* <-- Отступ между элементами */
+  font-size: 14px;
+  gap: 5px;
+}
+
+li.title {
+  background-color: #ef3124;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-left: 10px;
+}
+
+li.at {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  transition: background 0.2s;
+}
+
+li.at:hover .name,
+li.at:hover .number,
+li.at:hover .pos,
+li.at:hover .res,
+li.at:hover .city {
+  filter: brightness(0.65);
+  transition: filter 0.3s;
+}
+
+/* Общий стиль ячеек */
+li.title div,
+li.at div {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Колонки */
+div.pos {
+  width: 35px;
+  background-color: black;
+}
+
+div.number {
+  width: 62px;
+  background-color: #0BB349;
+}
+
+div.number.active {
+  background-color: yellow;
+  color: black;
+}
+
+div.name {
+  width: 320px;
+  background-color: #ef3124;
+  justify-content: flex-start;
+  padding-left: 10px;
+  text-transform: uppercase;
+}
+
+div.city {
+  width: 100px;
+  background-color: black;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 8px;
+}
+
+div.res {
+  width: 90px;
+  background-color: black;
+  color: white;
+}
+
+/* Кнопки */
+.send-btn,
+.out-btn {
+  height: 32px;
+  padding: 4px 10px;
+  margin-left: 5px;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  align-self: center;
+}
+
+.send-btn {
+  background-color: #0BB349;
+}
+
+.send-btn:hover {
+  background-color: #07933a;
+}
+
+.send-btn.active {
+  background-color: #FFD700;
+  color: black;
+}
+
+.out-btn {
+  background-color: orange;
+}
+
+.out-btn:hover {
+  background-color: magenta;
+}
+
+.res.selected-column {
+  background-color: #FFD700 !important;
+  color: black !important;
+  font-weight: bold;
+}

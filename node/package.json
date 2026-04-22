@@ -1,0 +1,21 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "flgr to myfinish.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.15.2",
+    "body-parser": "^2.2.2",
+    "express": "^5.2.1",
+    "fast-xml-parser": "^5.7.1",
+    "node-vmix": "^1.7.1",
+    "read-excel-file": "^9.0.6"
+  }
+}

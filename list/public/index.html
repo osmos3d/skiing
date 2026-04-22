@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css" crossorigin="anonymous">
+
+  
+
+
+
+  </head>
+  <body id="app" v-cloak>
+    <div class="row">
+      <div class='container'>
+        <div class="col" >
+        	<ul class="list-group">
+                <li class='title'> 
+                  <button
+                      class="out-btn"
+                      @click="titleOut">
+                       OUT </button>
+                  <button
+                    class="send-btn"
+                    @click="setColumn()">
+                    setColumn
+                  </button>
+                  <button
+                    class="send-btn"
+                    @click="setPlayerIndex({index:100})">
+                     >•<
+                  </button>
+                   <!-- • {{ at[0].Round}} -->
+
+                  <li class="title">
+                    <!-- Пустые ячейки под позицию, номер, имя, город -->
+                    <div class="pos" style="width:680px ;"></div>
+
+                    <div class="res" @click="selectColumn('res')" :class="{ 'selected-column': selectedColumnKey === 'res' }">
+                      results
+                    </div>
+                    <div class="res" @click="selectColumn('dif')" :class="{ 'selected-column': selectedColumnKey === 'dif' }">
+                      dif
+                    </div>
+                    
+                    <!-- Заголовки кругов -->
+                    <!-- <div
+                      class="res"
+                      v-for="(head, i) in at[0]?.d?.headers"
+                      :key="'header-' + i"
+                      @click="selectColumn(i)"
+                      :class="{ 'selected-column': selectedColumnKey === i }"
+                      style="cursor: pointer;"
+                    >
+                      {{ head  }}
+                    </div> -->
+                    <div
+                      class="res"
+                      v-for="(head, i) in at[0]?.d?.laps"
+                      :key="'header-' + i"
+                      @click="selectColumn(i)"
+                      :class="{ 'selected-column': selectedColumnKey === i }"
+                      style="cursor: pointer;"
+                    >
+                      {{ i+1  }}
+                    </div>
+
+                    
+
+                    <!-- Пустые ячейки под кнопки -->
+                    <div class="symbol" style="width: auto;"></div>
+
+                  </li>
+
+          		  <li  class="at"
+                  v-for="(item,index) in at"
+                  v-bind:id = 'index'
+                  :key="index"
+                  :style="{ top: (index * 40) + 40 + 'px' }"
+                  >
+
+
+                <button
+                  class="send-btn"
+                  @click="sendIndex({index:index, pv: true, title :'atid'})">
+                  PV
+                </button>
+                <button
+                  class="send-btn"
+                  @click="sendIndex({index:index, pv: true, title :'atresult'})">
+                  Res
+                </button>
+                <button
+                  class="send-btn"
+                  @click="setPlayerIndex({index:index})">
+                   >•<
+                </button>
+                
+
+                <div class='pos'>
+                 {{ index +1}} 
+                </div>
+
+                <div
+                  class='number'
+                  :class="{ active: clickedIndexes.includes(index) }">
+
+                  {{ item.n }} 
+                </div>
+
+            		<div class="name">
+                {{ item.i }} {{ item.LN }} 
+                </br>
+                </div>
+
+                <div class='city'>
+                {{ item.reg }}
+                </div>
+
+                <!-- result -->
+                <div
+                  class="res"
+                  :class="{ 'selected-column': selectedColumnKey === 'res' }"
+                >
+                  {{ item.r.time }}
+                </div>
+
+                <!-- dif -->
+                <div
+                  class="res"
+                  :class="{ 'selected-column': selectedColumnKey === 'dif' }"
+                >
+                  {{ item.r.dif }}
+                </div>
+
+                <!-- laps -->
+                <div
+                  class="res"
+                  v-for="(body, i) in item.d.laps"
+                  :key="'body-' + i"
+                  :class="{ 'selected-column': selectedColumnKey === i }"
+                >
+                  {{ body.time }}
+                </div>
+
+                
+
+
+                <button
+                  class="send-btn"
+                  :class="{ active: clickedIndexes.includes(index) }"
+                  @click="sendIndex({index:index, pv : false, title :'atid'})">
+                  →
+                </button>
+
+                <button
+                  class="send-btn"
+                  :class="{ active: clickedIndexes.includes(index) }"
+                  @click="sendIndex({index:index, pv: false, title :'atresult'})">
+                  PHOTO
+                </button>
+
+                <!-- <div class="result">
+                {{ item.Time  }} </br>
+                </div> -->
+
+          		</li>
+        	</ul>
+        </div>
+       
+      </div>
+
+    </div>
+
+
+
+  <script src="js/jquery.min.js"></script>
+  <script type="text/javascript" type="text/javascript" src="js/bootstrap.min.js"> </script>
+  <script type="text/javascript" type="text/javascript" src="js/axios.min.js"> </script>
+  <script type="text/javascript" type="text/javascript" src="js/jquery-3.6.1.min.js"> </script>
+  <script src="js/vue.global.js"></script>
+  <script type="module" src="js/app.js"></script>
+
+  </body>
+  </html>

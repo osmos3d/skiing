@@ -1,12 +1,10 @@
 /* CSS */
 @font-face {
   font-family: 'Opinion Pro';
-  src: url('fonts/Opinion Pro.ttf') format('truetype');
+  src: url('../fonts/Opinion Pro.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
-
-
 
 
 body {

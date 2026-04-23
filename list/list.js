@@ -18,7 +18,9 @@ var titleon = false
 const photoFolder = 'D://bmx_race_jul_2025/photo'
 var selectedCol = 0 ;
 
-url = process.env.SERVER_IP || 'http://localhost:3000/newr'
+const serverUrl = process.env.SERVER_IP || 'http://localhost:3000'
+const url = `${serverUrl}/newr`;
+console.log( 'url', url )
 
 app.use( express.static('public') )
 app.use(bodyParser.urlencoded({
@@ -112,14 +114,14 @@ app.post('/titleOut', (req,res) => {
 
 app.post('/setColumn' , (req,res) => {
     console.log( req.body )
-    axios.post( 'http://localhost:3000/setColumn' , req.body )
+    axios.post( `${serverUrl}/setColumn` , req.body )
     selectedCol = req.body.col; 
     res.sendStatus(200)
 })
 
 app.post('/setPlayerIndexForTable' , (req,res) => {
     console.log( req.body )
-    axios.post( 'http://localhost:3000/setPlayerIndex' , req.body )
+    axios.post( `${serverUrl}/setPlayerIndex` , req.body )
     res.sendStatus(200)
 })
 
